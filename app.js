@@ -30,6 +30,17 @@ function handleSearchInput(event) {
   const filteredData = Cdata.filter((item) => item.Sno.includes(inputValue));
   displayData(filteredData);
 }
+const classes = [
+  "table-primary",
+  "table-secondary",
+  "table-success",
+  "table-danger",
+  "table-warning",
+  "table-info",
+  "table-dark",
+];
+
+// const randomClass = classes[Math.floor(Math.random() * classes.length)];
 
 // Function to display the selected data
 function displayData(data) {
@@ -57,7 +68,9 @@ function displayData(data) {
     div.innerHTML = `
     <table class="table">
     <tbody>
-    <tr>
+    <tr class="${classes[
+      Math.floor(Math.random() * classes.length)
+    ].toString()}">
       <th scope="row">Serial Number:</th>
       <td>${item.Sno}</td>
     </tr>
@@ -82,8 +95,7 @@ function displayData(data) {
       <td> ${item.Sex}</td>
     </tr>
     </tbody>
-    </table>
-                     `;
+    </table> `;
     dataContainer.appendChild(div);
   });
 }
